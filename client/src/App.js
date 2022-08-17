@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Calendar from "./components/Calendar";
+import MeetingCalendar from "./components/Calendar/MeetingCalendar";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import VideoCall from "./components/VideoCall/App";
@@ -38,10 +38,10 @@ function App() {
       
       </nav>
         <Routes>
-          <Route path="/" element={<Calendar />} />
-          <Route path="/profile" element={ <Profile /> } />
-          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
-          <Route path="/videocall" element={<VideoCall />} />
+            <Route path="/" element={<MeetingCalendar />} />
+              <Route path="/profile" element={ <Profile /> } />
+              <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+              <Route path="/videocall" element={<VideoCall />} />
         </Routes>
       </Router>
   );
