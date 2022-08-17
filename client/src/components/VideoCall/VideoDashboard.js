@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@material-ui/core";
 import VideoCall from "./VideoCall";
 
-function App() {
+function VideoDashboard() {
   const [inCall, setInCall] = useState(false);
 
   return (
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default VideoDashboard;
