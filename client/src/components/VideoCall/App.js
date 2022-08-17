@@ -3,7 +3,7 @@ import React from 'react';
 const VideoCall = () => {
     return (
         <div>
-            profile
+            The Video Call component stuff will go here
         </div>
     );
 };
