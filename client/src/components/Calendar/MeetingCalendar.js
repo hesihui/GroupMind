@@ -17,7 +17,6 @@ import "./MeetingCaldndar.css";
 import CalendarModal from "./CalendarModal";
 
 Modal.setAppElement('#root');
-const { DateTime } = require("luxon");
 
 const locales = {
     "en-US": require("date-fns/locale/en-US"),
@@ -30,27 +29,6 @@ const localizer = dateFnsLocalizer({
     getDay,
     locales,
 });
-
-const events = [
-    {
-        title: "Big Meeting",
-        allDay: false,
-        start: new Date(2022, 8, 3, 5, 6),
-        end: new Date(2022, 8, 3, 7, 8),
-        id: "d"
-    },
-    {
-        title: "Vacation",
-        start: new Date(2022, 8, 30),
-        end: new Date(2022, 8, 30)
-    },
-    {
-        title: "Conference",
-        start: new Date(2022, 8, 20),
-        end: new Date(2022, 8, 23)
-    },
-];
-
 
 const MeetingCalendar = () => {
     const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
