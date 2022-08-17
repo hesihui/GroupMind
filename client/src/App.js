@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MeetingCalendar from "./components/Calendar/MeetingCalendar";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
-import VideoCall from "./components/VideoCall/App";
+import VideoCall from "./components/VideoCall/VideoCallMain";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
