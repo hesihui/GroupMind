@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Calendar from "./components/Calendar";
+import MeetingCalendar from "./components/Calendar/MeetingCalendar";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import VideoCall from "./components/VideoCall";
@@ -14,7 +14,7 @@ function App() {
           <Link to="/login"> Login</Link>
           <Link to="/videocall">Video Call</Link>
         <Routes>
-          <Route path="/" element={<Calendar />} />
+          <Route path="/" element={<MeetingCalendar />} />
           <Route path="/profile" element={ <Profile /> } />
           <Route path="/login" element={<Login />} />
           <Route path="/videocall" element={<VideoCall />} />
