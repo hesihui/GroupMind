@@ -11,7 +11,7 @@ export default function Video(props) {
   }, [users, tracks]);*/
 
   return (
-    <div style="height:100%, width:100%">
+    <div>
       <div>
         <AgoraVideoPlayer
           videoTrack={tracks[1]}
