@@ -1,9 +1,5 @@
-
-//import logo from './logo.svg';
-//import './App.css';
-
 import { useState } from "react";
-//import { Button } from "@material-ui/core";
+import Button from "@mui/material/Button"
 import VideoCall from "./VideoCall";
 
 function App() {
@@ -14,11 +10,13 @@ function App() {
       {inCall ? (
         <VideoCall setInCall={setInCall} />
       ) : (
-        <button
+        <Button
+          variant="contained"
+          color="primary"
           onClick={() => setInCall(true)}
         >
           Join Call
-        </button>
+        </Button>
       )}
     </div>
   );

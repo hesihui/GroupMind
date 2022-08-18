@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useClient } from "./settings";
-//import { Grid, Button } from "@material-ui/core";
-import MicIcon from "./images/MicOn.png";
-import MicOffIcon from "./images/MicOff.png";
-import VideocamIcon from "./images/VideoOn.png";
-import VideocamOffIcon from "./images/VideoOff.png";
-import ExitToAppIcon from "./images/Exit.png";
+//import { Grid, Button } from "@mui/base";
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import MicIcon from "@mui/icons-material/Mic";
+import MicOffIcon from "@mui/icons-material/MicOff";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import VideocamOffIcon from "@mui/icons-material/VideocamOff";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 export default function Controls(props) {
   const client = useClient();
@@ -36,30 +38,34 @@ export default function Controls(props) {
   };
 
   return (
-    <div align="center">
-      <div>
-        <button
+    <Grid container spacing={2} alignItems="center">
+      <Grid item>
+        <Button
+          variant="contained"
+          color={trackState.audio ? "primary" : "secondary"}
           onClick={() => mute("audio")}
         >
-          <div>
-            Audio: <b>{trackState.audio ? 'ON' : 'OFF'}</b>    
-            </div>
-        </button>
-      </div>
-      <div>
-        <button
+          {trackState.audio ? <MicIcon /> : <MicOffIcon />}
+        </Button>
+      </Grid>
+      <Grid item>
+        <Button
+          variant="contained"
+          color={trackState.video ? "primary" : "secondary"}
           onClick={() => mute("video")}
         >
-            <div>
-            Video: <b>{trackState.video ? 'ON' : 'OFF'}</b>    
-            </div>
-        </button>
-      </div>
-      <div>
-        <button
+          {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
+        </Button>
+      </Grid>
+      <Grid item>
+        <Button
+          variant="contained"
           onClick={() => leaveChannel()}
-        >Leave</button>
-      </div>
-    </div>
+        >
+          Leave
+          <ExitToAppIcon />
+        </Button>
+      </Grid>
+    </Grid>
   );
 }
