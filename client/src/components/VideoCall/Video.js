@@ -15,7 +15,7 @@ export default function Video(props) {
       <div>
         <AgoraVideoPlayer
           videoTrack={tracks[1]}
-          style={{ height: "100%", width: "100%" }}
+          //style={{ height: "100%", width: "100%" }}
         />
       </div>
       {users.length > 0 &&
@@ -26,7 +26,7 @@ export default function Video(props) {
                 <AgoraVideoPlayer
                   videoTrack={user.videoTrack}
                   key={user.uid}
-                  style={{ height: "100%", width: "100%" }}
+                  //style={{ height: "100%", width: "100%" }}
                 />
               </div>
             );

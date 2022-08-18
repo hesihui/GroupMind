@@ -67,13 +67,13 @@ export default function VideoCall(props) {
     }, [client, ready, tracks]);
 
     return (
-        <div style="height: 100%">
-            <div style="height:5%">
+        <div>
+            <div>
                 {ready && tracks && (
                     <Controls tracks={tracks} setStart={setStart} setInCall={setInCall} />
                 )}
             </div >
-            <div style="height: 90%; padding : 10px">
+            <div>
                     {start && tracks && (
                         <Video tracks={tracks} users={users} />
                     )}
