@@ -41,27 +41,24 @@ export default function Controls(props) {
         <button
           onClick={() => mute("audio")}
         >
-          <img 
-            src={ trackState.audio ? {MicIcon} : {MicOffIcon} } 
-            alt="Audio"  
-            />
+          <div>
+            Audio: <b>{trackState.audio ? 'ON' : 'OFF'}</b>    
+            </div>
         </button>
       </div>
       <div>
         <button
           onClick={() => mute("video")}
         >
-          <img 
-            src={ trackState.video ? {VideocamIcon} : {VideocamOffIcon} } 
-            alt="Audio"  
-            />
+            <div>
+            Video: <b>{trackState.video ? 'ON' : 'OFF'}</b>    
+            </div>
         </button>
       </div>
       <div>
         <button
           onClick={() => leaveChannel()}
         >Leave</button>
-          <img src = {ExitToAppIcon} alt = "Exit"></img>
       </div>
     </div>
   );
