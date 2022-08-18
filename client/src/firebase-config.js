@@ -2,13 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
+//Import the varaibles
+import {API, AUTH, PROJ, STOR, MESS, APP} from './variables';
 const firebaseConfig = {
-    apiKey: "< YOUR API KEY >",
-    authDomain: "< YOUR AUTHDOMAIN >",
-    projectId: "< YOUR PROJECTID >",
-    storageBucket: "< YOUR STORAGEBUCKET >",
-    messagingSenderId: "< YOUR MESSAGINGSENDERID >",
-    appId: "< YOUR ADDID >"
+    apiKey: API,
+    authDomain: AUTH,
+    projectId: PROJ,
+    storageBucket: STOR,
+    messagingSenderId: MESS,
+    appId: APP
   };
 
   const app = initializeApp(firebaseConfig);
