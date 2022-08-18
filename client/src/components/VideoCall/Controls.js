@@ -36,7 +36,7 @@ export default function Controls(props) {
   };
 
   return (
-    <div alignItems="center">
+    <div align="center">
       <div>
         <button
           onClick={() => mute("audio")}
