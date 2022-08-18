@@ -1,5 +1,5 @@
 # GroupMind Calendar Server
-This is the server for the calendar within the GroupMind app. Follow these structure:
+This is the server for the calendar within the GroupMind app:
 
 Set up a MongoDB Atlas Cluster
 https://hevodata.com/learn/mongodb-atlas-nodejs/
@@ -10,5 +10,6 @@ PORT = 5000
 CONNECTION_URL = [your connection URL]
 ```
 
-Do `npm install`
-Do `npm start`. The server will be deployed on port 5000.
+In the `server` directory, do the following
+Do `npm install` to install the neccesary dependencies.
+Do `npm start` to run the app. The server will be deployed on port 5000.
