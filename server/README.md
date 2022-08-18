@@ -10,6 +10,6 @@ PORT = 5000
 CONNECTION_URL = [your connection URL]
 ```
 
-In the `server` directory, do the following
-Do `npm install` to install the neccesary dependencies.
-Do `npm start` to run the app. The server will be deployed on port 5000.
+In the `server` directory, do the following:
+- Do `npm install` to install the neccesary dependencies.
+- Do `npm start` to run the app. The server will be deployed on port 5000.
