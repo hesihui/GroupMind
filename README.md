@@ -1,10 +1,10 @@
 # GroupMind
 Headstarter Summer Fellowship Week 6 Project <br>
-GroupMind is a full stack application that enables users to plan meetups via a calendar, and meet with each other via video.
-The app has these main functionalities
+GroupMind is a full stack application that enables users to plan meetups via a calendar, and meet with each other via video. <br>
+The app has these main functionalities:
 - User Authentication via Firebase
 - Calendar Event Management via MongoDB
-- Video Call Capability via Agora
+- Video Call Capability via Whereby
 
 ## Group Members and Responsibilities
 
@@ -75,107 +75,83 @@ CONNECTION_URL = [your connection URL]
 #### How to get MongoDB Credentials
 https://hevodata.com/learn/mongodb-atlas-nodejs/
 
-### Agora Credentials
-Variables Stored in `GroupMind/client/src/components/VideoCall/`
-
+### Whereby URL
+Variables Stored in `GroupMind/client/src/components/VideoCall/variables.js`
 ```
-export const ID=[your app ID]
-export const TOKEN=[Temp token for audio/video call]
+export const URL=[your whereby videocall url]
 ```
 
-#### How to get Temporary token
-- Go to Console -> Project Management
-    - https://console.agora.io/
-- Select the Project you want
-- Click “Config”
-- Scroll down to “Temp token for audio/video call”. Click the link.
-- For the channel name, I did. “main”
-- Click “Generate” to generate the temporary token
-
+#### How to get Whereby URL
+In the dashboard, go to a room of your choosing, scroll down to embed to get the iframe code for the meeting. You can get the URL from there.
 
 ## Resources
 
 ### Google Authentication with React and Firebase
 https://www.youtube.com/watch?v=cZAnibwI9u8
 
-### Video Calling App With Agora
+### Video Calling With Whereby
+Used Whereby Embed to embed the Whereby videocall service into our app as an iframe.
 
-#### React Video Calling App
-https://www.youtube.com/watch?v=lUrWJVCCVGc
+#### Tutorial for Embedding Whereby into Website
 
-#### Source Code
-https://github.com/techwithtim/Agora-Group-Video-Calling
+##### How to create a room (no code)
+https://docs.whereby.com/creating-and-deleting-rooms/using-create-a-room
 
-#### Agora SDK Wrapper
-https://github.com/AgoraIO-Community/agora-rtc-react/tree/v1.0.1
-`npm install git://github.com/AgoraIO-Community/agora-rtc-react#v1.0.1`
+##### Dashboard tutorial
+https://www.youtube.com/watch?v=kWQDzPdYrBc
+You can embed the video call capability into any website with a simple `<iframe>` you can copy-paste into your app.
+<br>
+To create a room, go to the dashboard. Fro m there, you will find a section that says “create room with no code”.  From there, click the buttons and follow the simple steps.
+<br>
+Room templates: you can select a meeting room template.
+Room size: can be 2-4 people or 2-200 people. Once set, cannot be changed.
 
-#### Attempt 1: Uninstalling `materials-ui`, using HTML elements
-This resource used an outdated library called `materials-ui` for icons and styling. Here is how we substituted their elements for displaying the video
-- Grid -> div
-- Button -> button
-- Tried to convert the icons to images, but that had limited success. So, used buttons instead.
+##### How to Embed Whereby into Your Website Embed
+https://www.youtube.com/watch?v=kNhhpA_RXg4
 
-##### Import Image
-Instead of the outdated libaries for icons. Attempted to use images. Limited success.<br>
-https://stackoverflow.com/questions/43823289/how-to-import-image-svg-png-in-a-react-component <br>
-https://stackoverflow.com/questions/55269749/dynamically-change-image-source-based-on-boolean-value <br>
-https://www.codegrepper.com/code-examples/javascript/set+image+source+from+react <br>
-https://betterprogramming.pub/how-to-display-images-in-react-dfe22a66d5e7 <br>
+Developer Guide -> Embedding rooms -> In a Web Page
+https://docs.whereby.com/embedding-rooms/in-a-web-page
 
+The video tutorial goes over using an iframe
+https://docs.whereby.com/embedding-rooms/in-a-web-page/using-an-iframe
 
+The code is very simple:
+```
+<iframe
+src="https://subdomain.whereby.com/room?minimal"
+allow="camera; microphone; fullscreen; speaker; display-capture"
+></iframe>
+```
 
-##### Ternary Operators for Images/Buttons
-Used buttons to indicate whether video/audio was on or off.<br>
-https://www.codegrepper.com/code-examples/javascript/ternary+operator+in+button+react <br>
-https://stackoverflow.com/questions/55269749/dynamically-change-image-source-based-on-boolean-value <br>
+Replace the subdomain with the subdomain you made. Go to the room you made and copy the url.
 
-Unfortunately, we couldn’t get the video to display.
+##### URL Parameters
+https://docs.whereby.com/customizing-rooms/using-url-parameters <br>
+This is used to customize the UI of the meeting room. We didn't change any of these for the project.
 
-#### Attempt 2: Upgrading to `mui`
-Next, we attempted to get the video working by installing a new version of `mui`.
+#### Camera Activation
+By default, the camera turns on, even if the page isn't opened. The solution I implemented is that the videocall component is a seperate component which is displayed by clicking a button. This component is hidden by default so the camera isn't activated until you open the page. Reloading the page reverts the component to its hidden state.
 
-##### Upgrading mui
-The mui version and code used in the video is outdated. Here's how to upgrade:
+##### Display iframe as Component:
+https://www.delftstack.com/howto/react/react-iframe/
 
-##### Migration
-https://mui.com/material-ui/migration/migration-v4/
+##### Display component with button:
+https://bobbyhadz.com/blog/react-onclick-show-component
+- We will use this to display the video meeting component if the user wishes to display it.
+- By default, will not be displayed.
 
-##### Installation
-If you haven't already, uninstall the old version of materialui.
-https://stackoverflow.com/questions/70546141/how-to-uninstall-material-ui-and-install-the-latest-mui/70824545#:~:text=Material%20UI%20has%20changed%20its,old%20%40material%2Dui%20packages.
-`npm uninstall @material-ui/core @material-ui/icons and do npm install @mui/material`
-`npm uninstall --save material-ui`
-
-Then, install the new version of mui and modify the components accordingly.
-- Import button: `import Button from "@mui/material/Button"`
-- Import Grid: `import Grid from "@mui/material/Grid"`
-- For the other components, change `material-ui` to `mui`
-- Remove any instance of `color = "default"`
-
-
-https://mui.com/getting-started/installation/<br>
-https://mui.com/material-ui/getting-started/installation/<br>
-https://mui.com/material-ui/material-icons/<br>
-https://mui.com/material-ui/api/grid/<br>
-https://mui.com/material-ui/api/button/
-
-`npm install @mui/material @emotion/react @emotion/styled`
-`npm install @mui/icons-material @mui/material @emotion/styled @emotion/react`
-
-Even after this, we couldn't get the video to display.
+##### Adjusting height of div in React
+https://bobbyhadz.com/blog/react-div-full-height
 
 ### Calendar
+- Used React Toast for notifications.
+- Used MongoDB for storing the events. See the README in the `server` directory for more info about how to set up the server.
 #### React JS Calendar App
 https://www.youtube.com/watch?v=lyRP_D0qCfk
 
 #### React FullCalendar Realtime Events
 https://www.youtube.com/watch?v=RE3yBdb8ijs
 
-- Used React Toast for notifications.
-- Used MongoDB for storing the events. See the README in the `server` directory for more info about how to set up the server.
-
 ### Deleting `.DS_Store` Files
 .DS_Store files may appear in your staged changes. Here is how to delete them if the `.gitignore` isn't successful at doing so. <br>
 https://stackoverflow.com/questions/30483670/delete-ds-store-files-in-current-folder-and-all-subfolders-from-command-line-on
-
